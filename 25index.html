@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>板東大士朗 - 自己紹介</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* 浮遊する背景要素 */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        /* メインコンテナ */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ヘッダー */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: slideInDown 1s ease-out;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #64b5f6, #42a5f5);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(100, 181, 246, 0.3);
+            transition: transform 0.3s ease;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .name {
+            font-size: 2.5em;
+            color: #1976d2;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #424242;
+            opacity: 0.8;
+        }
+
+        /* カードセクション */
+        .cards {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            animation: slideInUp 1s ease-out 0.5s both;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(25, 118, 210, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(25, 118, 210, 0.2);
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            color: #1976d2;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(45deg, #64b5f6, #42a5f5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .card-content {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+
+        /* 特殊効果 */
+        .highlight {
+            background: linear-gradient(45deg, #e3f2fd, #bbdefb);
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #1976d2;
+        }
+
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+        }
+
+        /* アニメーション */
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* パルス効果 */
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(100, 181, 246, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(100, 181, 246, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(100, 181, 246, 0);
+            }
+        }
+
+        /* フッター */
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            animation: slideInUp 1s ease-out 1s both;
+        }
+
+        .footer p {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- 浮遊する背景要素 -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="container">
+        <!-- ヘッダーセクション -->
+        <header class="header">
+            <div class="profile-image pulse">
+                板
+            </div>
+            <h1 class="name">板東大士朗</h1>
+            <p class="subtitle">Daisiro Bando</p>
+        </header>
+
+        <!-- カードセクション -->
+        <main class="cards">
+            <!-- 基本情報カード -->
+            <div class="card">
+                <h2 class="card-title">
+                    <div class="card-icon">👤</div>
+                    基本情報
+                </h2>
+                <div class="card-content">
+                    <p>はじめまして！<span class="highlight">板東大士朗</span>です。</p>
+                    <p>チーム開発を通じて、みんなで素晴らしいプロダクトを作り上げることを楽しみにしています。</p>
+                </div>
+            </div>
+
+            <!-- 特技カード -->
+            <div class="card">
+                <h2 class="card-title">
+                    <div class="card-icon">🧮</div>
+                    特技
+                </h2>
+                <div class="card-content">
+                    <p>私の特技は<span class="highlight">数学</span>です！</p>
+                    <p>論理的思考と問題解決能力を活かして、複雑な課題にも体系的にアプローチします。数学的な視点から物事を捉えることで、効率的で美しいソリューションを見つけることができます。</p>
+                </div>
+            </div>
+
+            <!-- 意気込みカード -->
+            <div class="card">
+                <h2 class="card-title">
+                    <div class="card-icon">🔥</div>
+                    チーム開発への意気込み
+                </h2>
+                <div class="card-content">
+                    <p><span class="highlight">がんばる</span>という気持ちを大切に！</p>
+                    <p>シンプルですが、この一言に私の全ての想いが込められています。チームメンバーと協力し、お互いを支え合いながら、最高の結果を目指します。困難な場面でも諦めず、常に前向きに取り組んでいきます。</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- フッター -->
+        <footer class="footer">
+            <p>✨ 一緒に素敵なプロダクトを作りましょう！ ✨</p>
+        </footer>
+    </div>
+
+    <script>
+        // ページ読み込み時のアニメーション
+        window.addEventListener('load', function() {
+            // カードの遅延アニメーション
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${0.5 + index * 0.2}s`;
+            });
+
+            // プロフィール画像のクリックイベント
+            const profileImage = document.querySelector('.profile-image');
+            profileImage.addEventListener('click', function() {
+                this.style.animation = 'bounce 0.6s ease-in-out';
+                setTimeout(() => {
+                    this.style.animation = 'bounce 2s ease-in-out infinite';
+                }, 600);
+            });
+
+            // カードホバー時の効果音代替（視覚効果）
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // 背景図形のランダム動き
+            const shapes = document.querySelectorAll('.shape');
+            shapes.forEach(shape => {
+                setInterval(() => {
+                    const randomX = Math.random() * 100;
+                    const randomY = Math.random() * 100;
+                    shape.style.left = randomX + '%';
+                    shape.style.top = randomY + '%';
+                }, 8000);
+            });
+        });
+
+        // スクロール時のパララックス効果
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.shape');
+            
+            shapes.forEach((shape, index) => {
+                const speed = 0.5 + index * 0.1;
+                shape.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
