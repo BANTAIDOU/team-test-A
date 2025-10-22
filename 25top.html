@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学の世界 - Math Wonderland</title>
+    <link rel="stylesheet" href="25style.css">
+</head>
+<body>
+    <!-- 浮遊する背景要素 -->
+    <div class="floating-shapes"></div>
+
+    <div class="container">
+        <!-- ナビゲーション -->
+        <nav class="navigation">
+            <a href="25index.html" class="nav-link">🏠 ホーム（板東大士朗）</a>
+            <a href="#problems" class="nav-link">📝 数学問題</a>
+            <a href="#knowledge" class="nav-link">🧠 数学知識</a>
+        </nav>
+
+        <!-- ヘッダーセクション -->
+        <header class="header">
+            <h1 class="title">数学の世界</h1>
+            <p class="subtitle">Math Wonderland - 面白い数学の問題と知識の宝庫</p>
+        </header>
+
+        <!-- メインコンテンツ -->
+        <main class="cards-grid">
+            <!-- 基本的な面白い問題 -->
+            <div class="card" id="problems">
+                <div class="card-header">
+                    <div class="card-icon">🧮</div>
+                    <h2 class="card-title">面白い数学問題</h2>
+                </div>
+                <div class="card-content">
+                    
+                    <div class="interactive-problem">
+                        <div class="problem-title">🎯 モンティ・ホール問題</div>
+                        <div class="problem-content">
+                            3つのドアがあり、1つの後ろに車、2つの後ろにヤギがいます。<br>
+                            あなたが1つ選んだ後、司会者が残り2つのうちヤギのいるドアを開けました。<br>
+                            <strong>選択を変更すべきでしょうか？</strong>
+                        </div>
+                        <button class="reveal-answer">答えを見る</button>
+                        <div class="answer">
+                            <strong>変更すべきです！</strong><br>
+                            最初の選択が正しい確率：1/3<br>
+                            変更後に正しい確率：2/3<br>
+                            <span class="highlight">変更することで勝率が2倍になります</span>
+                        </div>
+                    </div>
+
+                    <div class="interactive-problem">
+                        <div class="problem-title">🎲 誕生日のパラドックス</div>
+                        <div class="problem-content">
+                            何人集まれば、2人が同じ誕生日である確率が50%を超えるでしょうか？<br>
+                            直感で答えてみてください！
+                        </div>
+                        <button class="reveal-answer">答えを見る</button>
+                        <div class="answer">
+                            <strong>なんと23人です！</strong><br>
+                            23人で約50.7%、30人で約70%になります。<br>
+                            <span class="highlight">365人の半分（約183人）ではありません</span>
+                        </div>
+                    </div>
+
+                    <div class="math-formula">
+                        <span class="math-symbol">P(少なくとも1組が同じ) = 1 - P(全員違う)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 黄金比とフィボナッチ -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🌟</div>
+                    <h2 class="card-title">黄金比とフィボナッチ数列</h2>
+                </div>
+                <div class="card-content">
+                    <div class="theorem-box">
+                        <strong>黄金比 φ = (1 + √5) / 2 ≈ 1.618</strong><br>
+                        この比率は自然界や芸術に頻繁に現れる美しい比率です。
+                    </div>
+                    
+                    <div class="interactive-problem">
+                        <div class="problem-title">🐰 フィボナッチ数列の秘密</div>
+                        <div class="problem-content">
+                            1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89...<br>
+                            連続する2つのフィボナッチ数の比を計算してみましょう
+                        </div>
+                        <button class="reveal-answer">答えを見る</button>
+                        <div class="answer">
+                            <strong>黄金比に収束します！</strong><br>
+                            89/55 ≈ 1.618<br>
+                            144/89 ≈ 1.618<br>
+                            <span class="highlight">フィボナッチ数列と黄金比は深く関係しています</span>
+                        </div>
+                    </div>
+
+                    <div class="golden-ratio" style="text-align: center; margin: 20px 0;">
+                        <!-- JavaScript で黄金比の視覚化を挿入 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 無限の不思議 -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">∞</div>
+                    <h2 class="card-title">無限の不思議</h2>
+                </div>
+                <div class="card-content">
+                    
+                    <div class="interactive-problem">
+                        <div class="problem-title">🔢 0.999... = 1 ？</div>
+                        <div class="problem-content">
+                            0.999999... （9が無限に続く）は1と等しいでしょうか？<br>
+                            数学的に証明してみましょう！
+                        </div>
+                        <button class="reveal-answer">答えを見る</button>
+                        <div class="answer">
+                            <strong>はい、等しいです！</strong><br>
+                            x = 0.999... とすると<br>
+                            10x = 9.999...<br>
+                            10x - x = 9<br>
+                            9x = 9<br>
+                            <span class="highlight">∴ x = 1</span>
+                        </div>
+                    </div>
+
+                    <div class="math-formula">
+                        <span class="math-symbol">∞ + 1 = ∞</span><br>
+                        <span class="math-symbol">∞ × 2 = ∞</span><br>
+                        <small>無限は普通の数とは違う性質を持ちます</small>
+                    </div>
+
+                    <div class="theorem-box">
+                        <strong>ヒルベルトのホテルのパラドックス</strong><br>
+                        無限に部屋があるホテルが満室でも、新しいお客さんを受け入れることができます。
+                        各お客さんに「部屋番号+1」の部屋に移動してもらえば、1号室が空きます！
+                    </div>
+                </div>
+            </div>
+
+            <!-- オイラーの等式 -->
+            <div class="card" id="knowledge">
+                <div class="card-header">
+                    <div class="card-icon">👨‍🔬</div>
+                    <h2 class="card-title">オイラーの等式</h2>
+                </div>
+                <div class="card-content">
+                    <div class="math-formula" style="font-size: 1.5em; padding: 25px;">
+                        <span class="math-symbol">e^(iπ) + 1 = 0</span>
+                    </div>
+                    
+                    <p>この等式は「数学で最も美しい等式」と呼ばれています。</p>
+                    <ul style="margin: 15px 0; padding-left: 20px;">
+                        <li><strong>e</strong> - ネイピア数（自然対数の底）</li>
+                        <li><strong>i</strong> - 虚数単位（i² = -1）</li>
+                        <li><strong>π</strong> - 円周率</li>
+                        <li><strong>1, 0</strong> - 最も基本的な数</li>
+                    </ul>
+                    
+                    <div class="highlight">
+                        5つの重要な数学定数が1つの等式に！
+                    </div>
+                </div>
+            </div>
+
+            <!-- 確率の不思議 -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🎯</div>
+                    <h2 class="card-title">確率の不思議</h2>
+                </div>
+                <div class="card-content">
+                    
+                    <div class="interactive-problem">
+                        <div class="problem-title">🃏 3枚のカード問題</div>
+                        <div class="problem-content">
+                            3枚のカードがあります：<br>
+                            ・両面が赤<br>
+                            ・両面が青<br>
+                            ・片面が赤、片面が青<br>
+                            <br>
+                            1枚引いて表が赤でした。裏も赤である確率は？
+                        </div>
+                        <button class="reveal-answer">答えを見る</button>
+                        <div class="answer">
+                            <strong>2/3です！</strong><br>
+                            直感では1/2と思いがちですが...<br>
+                            表が赤の場合、3つの可能性があります：<br>
+                            ・両面赤カードの面1<br>
+                            ・両面赤カードの面2<br>
+                            ・片面カードの赤面<br>
+                            <span class="highlight">このうち2つで裏も赤です</span>
+                        </div>
+                    </div>
+
+                    <div class="theorem-box">
+                        <strong>大数の法則</strong><br>
+                        コイントスを無限回繰り返すと、表が出る割合は1/2に収束します。
+                        しかし、短期的には大きくずれることがあります！
+                    </div>
+                </div>
+            </div>
+
+            <!-- 幾何学の美 -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">📐</div>
+                    <h2 class="card-title">幾何学の美</h2>
+                </div>
+                <div class="card-content">
+                    <div class="fibonacci-spiral" style="text-align: center; margin: 20px 0;">
+                        <!-- JavaScript でフィボナッチ螺旋を挿入 -->
+                    </div>
+
+                    <div class="interactive-problem">
+                        <div class="problem-title">📏 円周率πの近似</div>
+                        <div class="problem-content">
+                            アルキメデスが発見した方法で円周率を近似してみましょう。<br>
+                            正六角形から始めて、正12角形、正24角形...と増やしていくと？
+                        </div>
+                        <button class="reveal-answer">答えを見る</button>
+                        <div class="answer">
+                            <strong>πに近づきます！</strong><br>
+                            正6角形の周囲長：6（内接）<br>
+                            正12角形：約6.21<br>
+                            正24角形：約6.27<br>
+                            <span class="highlight">π ≈ 3.14159...</span>
+                        </div>
+                    </div>
+
+                    <div class="math-formula">
+                        <span class="math-symbol">
+                            A = πr²<br>
+                            C = 2πr
+                        </span><br>
+                        <small>円の面積と円周の公式</small>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- フッター -->
+        <footer class="footer">
+            <p>🌟 数学は宇宙の言語です 🌟</p>
+            <p>「数学において最も重要なのは、なぜそうなるかを知ることである」- リチャード・ファインマン</p>
+            <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">
+                💡 ヒント: スペースキーで新しい図形を追加、Ctrl+Enterで数学ファクトを表示
+            </p>
+        </footer>
+    </div>
+
+    <script src="41script.js"></script>
+</body>
+</html>
